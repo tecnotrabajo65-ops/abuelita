@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Memoriam — Doña Tonita Paredes</title>
+    <!-- Hoja de estilos externa -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuentes elegantes desde Google Fonts -->
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Capa de fondo sutil -->
+    <div class="background-overlay"></div>
+
+    <!-- Contenedor Principal tipo Tarjeta Móvil -->
+    <main class="memorial-container">
+        
+        <!-- Recurso de Audio Local -->
+        <audio id="bg-music" src="cancion.mp3" loop></audio>
+        
+        <!-- Botón flotante para interactuar con la música -->
+        <button id="music-toggle" class="floating-music-btn" aria-label="Reproducir música conmemorativa">
+            <span id="music-icon">🎵</span>
+        </button>
+
+        <!-- Cabecera del Homenaje -->
+        <header class="profile-header">
+            <div class="avatar-frame">
+                <img src="perfil.jpg" alt="Petrona Paredes Ramírez" class="profile-img">
+            </div>
+            <h1 class="memorial-name">Petrona Paredes Ramírez</h1>
+            <p class="memorial-nickname">“Tonita Paredes”</p>
+            <p class="memorial-dates">10 de Febrero, 1948 — 24 de Marzo, 2025</p>
+            <div class="divider">🕊️</div>
+        </header>
+
+        <!-- Sección de la Biografía Literal -->
+        <section class="content-section">
+            <h2>Nuestra Historia</h2>
+            <div class="biography-text">
+                <p class="bio-intro">Nació un 10 de febrero 1948 en este hermoso pueblo de Morazan.</p>
+                
+                <p>Tonita fue una mujer de carácter fuerte, pero a su vez muy noble, trabajadora, responsable, respetuosa, muy carismática y con su sonrisa muy especial.</p>
+                
+                <p>A lo largo de su vida fue una mujer muy trabajadora, luchó mucho por sacar adelante a sus hijos y siempre ser un ejemplo para ellos de nunca caer ante cualquier adversidad.</p>
+                
+                <p>Una de sus pasiones era la naturaleza, le encantaba cada mañana levantarse muy temprano, darle gracias a Dios por un nuevo día e ir a sus terrenos, a sembrar flores, árboles frutales, y disfrutar de todo lo que en vida pudo cosechar</p>
+                
+                <p>Sus cuatro hijos la amaron como nunca, siempre la respetaron y la valoraron como la gran madre que fue para ellos, y día con día la llevarán siempre en su corazón poniendo muy en alto los valores y principios que siempre les inculcó</p>
+                
+                <p class="bio-closing">Hoy solo queda una silla vacía donde se sentaba afuera de su casa para descansar y platicar con quien pasaba a saludarla.</p>
+            </div>
+        </section>
+
+        <!-- Galería de Rejilla 2x2 para las fotos -->
+        <section class="content-section">
+            <h2>Recuerdos Inolvidables</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="recuerdo1.jpg" alt="Recuerdo con la naturaleza"></div>
+                <div class="gallery-item"><img src="recuerdo2.jpg" alt="Recuerdo familiar"></div>
+                <div class="gallery-item"><img src="recuerdo3.jpg" alt="Recuerdo con flores"></div>
+                <div class="gallery-item"><img src="recuerdo4.jpg" alt="Recuerdo feliz"></div>
+            </div>
+        </section>
+
+        <!-- Pie de página conmemorativo -->
+                 <!-- Sección del Video Conmemorativo -->
+        <section class="content-section" style="text-align: center; margin-top: 10px;">
+            <button id="btn-video" class="btn-video-premium">
+                🎥 Ver Video del Recuerdo
+            </button>
+        </section>
+
+        <!-- Ventana Emergente Oculta (Modal) -->
+        <div id="video-modal" class="modal-overlay">
+            <div class="modal-content">
+                <button id="close-modal" class="close-modal-btn">&times;</button>
+                <video id="memorial-video" src="Video con cancion.mp4" controls width="100%"></video>
+            </div>
+        </div>
+
+        <footer class="memorial-footer">
+            <p>Que brille para ella la luz perpetua.</p>
+            <span class="signature">Con amor, tu familia</span>
+        </footer>
+    </main>
+
+    <!-- Enlace a la lógica en JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

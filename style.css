@@ -1,0 +1,390 @@
+.btn-video-premium {
+    /* Forzamos a borrar el fondo blanco y bordes nativos del navegador */
+    background: rgba(212, 175, 55, 0.05) !important;
+    border: 1px solid var(--accent-gold) !important;
+    color: var(--accent-gold) !important;
+    
+    /* Dimensiones y espaciado */
+    padding: 14px 28px;
+    border-radius: 50px;
+    width: 85%;
+    margin: 20px auto;
+    display: block;
+    
+    /* Tipografía elegante */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    
+    /* Interacción */
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* ==========================================
+   ESTILOS DEL MODAL Y BOTÓN DE CERRAR (X)
+   ========================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;  /* Cambiado de 100vw a 100% para evitar desbordamientos */
+    height: 100%; /* Cambiado de 100vh a 100% */
+    background: rgba(0, 0, 0, 0.9); /* Un fondo ligeramente más oscuro para resaltar el video */
+    backdrop-filter: blur(8px);
+    
+    /* Estas tres líneas son el secreto para centrar cualquier elemento en CSS */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    
+    z-index: 200; /* Lo subimos para asegurarnos de que cubra absolutamente todo */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    background: #131316;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content video {
+    display: block;
+    width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    background: #000000;
+}
+
+.close-modal-btn {
+    position: absolute !important;
+    top: 12px !important;
+    right: 15px !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    border: none !important;
+    color: var(--text-main) !important;
+    font-size: 2rem !important;
+    cursor: pointer;
+    z-index: 110 !important;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-modal-btn:hover {
+    color: var(--accent-gold) !important;
+}
+
+/* ==========================================
+   VARIABLES DE DISEÑO PREMIUM (DORADO Y OSCURO)
+   ========================================== */
+:root {
+    --bg-dark: #0a0a0c;
+    --card-bg: rgba(20, 20, 25, 0.85);
+    --accent-gold: #d4af37;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --border-color: rgba(212, 175, 55, 0.15);
+}
+
+/* ==========================================
+   RESET & ESTILOS BASE
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 12px;
+}
+
+/* ==========================================
+   CONTENEDOR TIPO APP MÓVIL
+   ========================================== */
+.memorial-container {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    width: 100%;
+    max-width: 420px;
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+    padding: 30px 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    position: relative;
+}
+
+/* ==========================================
+   BOTÓN FLOTANTE DE MÚSICA
+   ========================================== */
+.floating-music-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid var(--accent-gold);
+    color: var(--text-main);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.floating-music-btn:active {
+    transform: scale(0.9);
+}
+
+/* ==========================================
+   ENCABEZADO (FOTO Y FECHAS)
+   ========================================== */
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.avatar-frame {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-gold);
+    padding: 4px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.memorial-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+    color: var(--text-main);
+    margin-bottom: 2px;
+}
+
+.memorial-nickname {
+    font-size: 1.1rem;
+    color: var(--accent-gold);
+    font-style: italic;
+    margin-bottom: 6px;
+}
+
+.memorial-dates {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+}
+
+.divider {
+    margin: 15px auto 0;
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+/* ==========================================
+   SECCIONES DE CONTENIDO (BIOGRAFÍA)
+   ========================================== */
+.content-section {
+    margin-bottom: 32px;
+}
+
+.content-section h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    color: var(--accent-gold);
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 6px;
+}
+
+.biography-text p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #e5e7eb;
+    margin-bottom: 14px;
+    text-align: justify;
+    font-weight: 300;
+}
+
+.biography-text .bio-intro {
+    font-weight: 500;
+    color: var(--accent-gold);
+}
+
+.biography-text .bio-closing {
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   REJILLA DE GALERÍA DE RECUERDOS (2x2)
+   ========================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    height: 220px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center; 
+    transition: transform 0.3s ease;
+}
+
+/* ==========================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================== */
+.memorial-footer {
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.signature {
+    display: block;
+    margin-top: 4px;
+    font-family: 'Cinzel', serif;
+    color: var(--accent-gold);
+/* ==========================================
+   ESTILO CORREGIDO PARA EL BOTÓN DE VIDEO
+   ========================================== */
+
+
+/* Efecto visual cuando se presiona el botón en el celular */
+.btn-video-premium:active {
+    transform: scale(0.96);
+    background: rgba(212, 175, 55, 0.2) !important;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+
+/* Capa oscura de fondo que cubre la pantalla */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Clase activa que inyectaremos con JS */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Caja del contenedor del video */
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 400px; /* Reducimos el ancho máximo para pantallas móviles */
+    background: #131316;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content video {
+    display: block;
+    width: 100%;
+    max-height: 70vh; /* Evita que el video sea más alto que la pantalla del celular */
+    object-fit: contain; /* Ajusta el video elegantemente dentro del cuadro negro */
+    background: #000000;
+}
+
+/* Botón para cerrar (X) */
+.close-modal-btn {
+    position: absolute; /* Corregido de positinn a position */
+    top: 12px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro sutil para que se vea la X */
+    border: none;
+    color: var(--text-main);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 110; /* Lo subimos para asegurar que quede por encima del video */
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-modal-btn:hover {
+    color: var(--accent-gold);
+}
+
+    font-size: 0.75rem;
+}
